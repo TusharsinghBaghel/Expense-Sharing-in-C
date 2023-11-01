@@ -92,8 +92,10 @@ void Add_User(void)
         if(Users[userid_to_add].userid == 0)
             {
                 Users[userid_to_add].userid = userid_to_add;
-                printf("Enter Username without spaces \n:");
-                scanf("%s", Users[userid_to_add].username);
+                printf("Enter Username without spaces:");
+                char c = getchar();
+                fgets(Users[userid_to_add].username, 100, stdin);
+                Users[userid_to_add].username[strcspn(Users[userid_to_add].username, "\n")] = 0;
                 usercount++;
                 printf("Input Taken :) \nName: %s \n",Users[userid_to_add].username);
                 printf("User_id: %d \n",Users[userid_to_add].userid);
